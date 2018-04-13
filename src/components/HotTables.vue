@@ -2,14 +2,14 @@
   <div class="hot-tables">
     <div class="header clearfix">
       <h4 class="f-l">热门圆桌</h4>
-      <a href="#" class="f-r">更多圆桌>></a>
+      <a class="f-r">更多圆桌>></a>
     </div>
     <div class="table-list">
       <ul>
         <li class="clearfix" v-for="table in hotTables">
-          <a href="#" class="avatar f-l"></a>
+          <a class="avatar f-l"></a>
           <p class="remaining-days f-r">还有{{table.remainingDays}}天结束</p>
-          <a href="#" class="name">{{table.tableName}}</a>
+          <a class="name">{{table.tableName}}</a>
           <p class="info">{{table.followerNumber}}个人关注，{{table.questionNumber}}个问题</p>
         </li>
       </ul>

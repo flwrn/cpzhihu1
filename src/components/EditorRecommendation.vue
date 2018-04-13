@@ -2,23 +2,23 @@
   <div class="editor-recommendation">
     <div class="header clearfix">
       <p class="f-l">编辑推荐</p>
-      <a href="#" class="f-r">更多推荐>></a>
+      <a class="f-r">更多推荐>></a>
     </div>
     <hr>
     <div class="recommendation-list">
       <div class="top-question clearfix">
-        <a href="#" class="question"><h4>{{topQuestion.question}}</h4></a>
+        <a href="#/question" class="question"><h4>{{topQuestion.question}}</h4></a>
         <a class="avatar f-l"></a>
         <div class="author">
-          <a href="#" class="name"><h4>{{topQuestion.author.name}}</h4></a>
-          <a href="#" class="field">{{topQuestion.author.field}}</a>
+          <a class="name"><h4>{{topQuestion.author.name}}</h4></a>
+          <a class="field">{{topQuestion.author.field}}</a>
           <p class="info">{{topQuestion.author.info}}</p>
         </div>
         <p class="answer">{{topQuestion.answer}}</p>
       </div>
       <ul>
         <li class="clearfix" v-for="question in questionList">
-          <a href="#" class="question f-l"><h4>{{question.question}}</h4></a>
+          <a href="#/question" class="question f-l"><h4>{{question.question}}</h4></a>
           <p class="tag f-r">{{question.tag}}</p>
         </li>
       </ul>

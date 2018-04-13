@@ -6,12 +6,12 @@
       </div>
       <nav class="nav f-l">
         <ul class="clearfix">
-          <li class="f-l"><a href="#" class="home">首页</a></li>
-          <li class="f-l"><a href="#" class="topic">话题</a></li>
-          <li class="f-l"><a href="#" class="explore">发现</a></li>
+          <li class="f-l"><a href="#/" class="home">首页</a></li>
+          <li class="f-l"><a href="#/" class="topic">话题</a></li>
+          <li class="f-l"><a href="#/" class="explore">发现</a></li>
         </ul>
       </nav>
-      <div class="search f-l clearfix" v-bind:style="style.search">
+      <div class="search f-l clearfix" v-bind:class="searchStyle">
         <input type="text"
           class="f-l"
           v-bind:style="style.searchInput"
@@ -19,12 +19,12 @@
           v-on:blur="onblur"
           placeholder="搜索你感兴趣的内容..."
         >
-        <a href="#" class="search-btn f-r" v-bind:style="style.searchBtn">搜索</a>
+        <a class="search-btn f-r">搜索</a>
       </div>
       <div class="btns f-r">
         <ul class="clearfix">
-          <li class="f-l"><a href="#" class="login">登录</a></li>
-          <li class="f-l"><a href="#" class="signup">加入知乎</a></li>
+          <li class="f-l"><a class="login">登录</a></li>
+          <li class="f-l"><a class="signup">加入知乎</a></li>
         </ul>
       </div>
     </div>
@@ -32,8 +32,8 @@
       <h2 class="question-title f-l">问问题</h2>
       <div class="btns f-r">
         <ul class="clearfix">
-          <li class="f-l"><a href="#" class="follow">关注问题</a></li>
-          <li class="f-l"><a href="#" class="write-answer">写回答</a></li>
+          <li class="f-l"><a class="follow">关注问题</a></li>
+          <li class="f-l"><a class="write-answer">写回答</a></li>
         </ul>
       </div>
     </div>
@@ -45,22 +45,25 @@ export default {
   data() {
     return {
       style: {
-        search: {
-          background: '#eee',
-          border: '1px solid #ddd'
-        },
-        searchInput: {
-          width: '250px'
-        },
-        searchBtn: {
-          color: '#666'
-        },
+        // search: {
+        //   background: '#eee',
+        //   border: '1px solid #ddd'
+        // },
+        // searchInput: {
+        //   width: '250px'
+        // },
+        // searchBtn: {
+        //   color: '#666'
+        // },
         header1: {
           transform: ''
         },
         header2: {
           transform: ''
         }
+      },
+      searchStyle: {
+        focus: false
       },
       questionPanel: {
         el: null,
@@ -72,16 +75,18 @@ export default {
   },
   methods: {
     onfocus() {
-      this.style.search.background = '#fff'
-      this.style.search.border = '1px solid #999'
-      this.style.searchInput.width = '300px'
-      this.style.searchBtn.color = '#06f'
+      this.searchStyle.focus = true
+      // this.style.search.background = '#fff'
+      // this.style.search.border = '1px solid #999'
+      // this.style.searchInput.width = '300px'
+      // this.style.searchBtn.color = '#06f'
     },
     onblur() {
-      this.style.search.background = '#eee'
-      this.style.search.border = '1px solid #ddd'
-      this.style.searchInput.width = '250px'
-      this.style.searchBtn.color = '#666'
+      this.searchStyle.focus = false
+      // this.style.search.background = '#eee'
+      // this.style.search.border = '1px solid #ddd'
+      // this.style.searchInput.width = '250px'
+      // this.style.searchBtn.color = '#666'
     },
     onscroll() {
       this.questionPanel.currentBottom = this.questionPanel.el.getBoundingClientRect().bottom
@@ -198,6 +203,16 @@ export default {
           padding: 0 10px;
           color: #666;
           transition: all .2s;
+        }
+      }
+      .search.focus {
+        background: #fff;
+        border: 1px solid #999;
+        input {
+          width: 300px;
+        }
+        .search-btn {
+          color: #06f;
         }
       }
       .btns {

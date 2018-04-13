@@ -2,12 +2,12 @@
   <div class="comments-wrapper">
     <div class="comments-info clearfix">
       <p class="comments-number f-l">几条评论</p>
-      <a href="#" class="sorting-comments f-r">切换时间顺序</a>
+      <a class="sorting-comments f-r">切换时间顺序</a>
     </div>
     <ul class="comments">
       <li class="comment clearfix" v-for="(comment, index) in comments" v-on:mouseenter="mouseenter(index)" v-on:mouseleave="mouseleave(index)">
-        <a href="#" class="avatar f-l"></a>
-        <a href="#" class="name f-l">{{comment.name}}</a>
+        <a class="avatar f-l"></a>
+        <a class="name f-l">{{comment.name}}</a>
         <p class="time f-r">{{comment.time}}</p>
         <p class="content">{{comment.content}}</p>
         <p class="ups f-r">{{comment.ups}}个赞</p>
@@ -21,11 +21,11 @@
         </div>
       </li>
     </ul>
-    <div class="new-comment-row clearfix">
-      <div class="new-comment-wrapper f-l" v-bind:style="newCommentStyle.input">
+    <div class="new-comment-row clearfix" v-bind:class="newCommentStyle">
+      <div class="new-comment-wrapper f-l">
         <input class="new-comment" v-on:focus="inputOnFocus" v-on:blur="inputOnBlur" type="text" placeholder="写下你的评论...">
       </div>
-      <a href="#" class="new-comment-send f-r" v-bind:style="newCommentStyle.send">发送</a>
+      <a class="new-comment-send f-r">发送</a>
     </div>
   </div>
 </template>
@@ -66,15 +66,16 @@ export default {
       ],
       isShown: false,
       newCommentStyle: {
-        input: {
-          background: '#eee',
-          width: '86%'
-        },
-        send: {
+        focus: false
+        // input: {
+        //   background: '#eee',
+        //   width: '86%'
+        // },
+        // send: {
           // display: 'none',
           // visibility: 'hidden',
           // background: 'red'
-        }
+        // }
       }
     }
   },
@@ -86,15 +87,17 @@ export default {
       this.comments[index].isBtnShown = false
     },
     inputOnFocus() {
+      this.newCommentStyle.focus = true
       // this.newCommentStyle.input.width = '86%'
-      this.newCommentStyle.input.background = '#fff'
+      // this.newCommentStyle.input.background = '#fff'
       // this.newCommentStyle.send.display = 'block'
       // this.newCommentStyle.send.visibility = 'visible'
       // this.newCommentStyle.send.background = 'green'
     },
     inputOnBlur() {
+      this.newCommentStyle.focus = false
       // this.newCommentStyle.input.width = '100%'
-      this.newCommentStyle.input.background = '#eee'
+      // this.newCommentStyle.input.background = '#eee'
       // this.newCommentStyle.send.display = 'none'
       // this.newCommentStyle.send.visibility = 'hidden'
       // this.newCommentStyle.send.background = 'red'
@@ -174,6 +177,7 @@ export default {
       height: 100%;
       padding: 10px;
       overflow: hidden;
+      position: relative;
       .new-comment-wrapper {
         // margin: 10px;
         border: 1px solid #999;
@@ -200,9 +204,23 @@ export default {
         color: #fff;
         border-radius: 3px;
         margin: 0 5px;
+        transform: scale(0.1);
         // display: none;
         // visibility: hidden;
         transition: all .2s;
+        position: absolute;
+        right: 10px;
+        opacity: 0;
+      }
+    }
+    .new-comment-row.focus {
+      .new-comment-wrapper {
+        background: #fff;
+        width: 86%;
+      }
+      .new-comment-send {
+        transform: scale(1);
+        opacity: 1;
       }
     }
   }

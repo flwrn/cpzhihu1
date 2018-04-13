@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="download-zhihu-btn">
-    <a href="#">下载知乎 App</a>
+    <a>下载知乎 App</a>
   </div>
 </template>
 

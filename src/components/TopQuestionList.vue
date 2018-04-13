@@ -2,36 +2,36 @@
   <div class="top-question">
     <div class="tabs clearfix">
       <ul>
-        <li><a href="#" class="top-today f-l">今日最热</a></li>
-        <li><a href="#" class="top-month f-l">本月最热</a></li>
+        <li><a class="top-today f-l">今日最热</a></li>
+        <li><a class="top-month f-l">本月最热</a></li>
       </ul>
     </div>
     <div class="question-list">
       <ul>
         <li class="clearfix" v-for="(question, index) in questionList" v-on:mouseenter="mouseenter(question)" v-on:mouseleave="mouseleave(question)">
-          <a href="#" class="question"><h4>{{question.question}}</h4></a>
-          <a href="#" class="likes f-l">{{question.likes}}</a>
+          <a href="#/question" class="question"><h4>{{question.question}}</h4></a>
+          <a class="likes f-l">{{question.likes}}</a>
           <div class="author">
-            <a href="#" class="name"><h4>{{question.author.name}}</h4></a>
-            <a href="#" class="field">{{question.author.field}}</a>
+            <a class="name"><h4>{{question.author.name}}</h4></a>
+            <a class="field">{{question.author.field}}</a>
             <p class="info">{{question.author.info}}</p>
           </div>
           <p class="answer">{{question.answer}}</p>
           <div class="btns clearfix">
             <ul class="clearfix f-l">
-              <li class="f-l"><a href="#" class="follow-btn">关注问题</a></li>
+              <li class="f-l"><a class="follow-btn">关注问题</a></li>
               <li class="f-l"><a v-on:click="showComments(question, index)" class="comments">{{question.comments}}条评论</a></li>
             </ul>
             <ul class="clearfix f-l" v-if="!(question.hover || question.showComments)">
-              <li class="f-l"><a href="#" class="ask-repost">申请转载</a></li>
+              <li class="f-l"><a class="ask-repost">申请转载</a></li>
             </ul>
             <ul class="clearfix f-l" v-if="(question.hover || question.showComments)">
-              <li class="f-l"><a href="#" class="thank">感谢</a></li>
-              <li class="f-l"><a href="#" class="share">分享</a></li>
-              <li class="f-l"><a href="#" class="favorite">收藏</a></li>
-              <li class="f-l"><a href="#" class="helpless">没有帮助</a></li>
-              <li class="f-l"><a href="#" class="">举报</a></li>
-              <li class="f-l"><a href="#" class="no-repost">禁止转载</a></li>
+              <li class="f-l"><a class="thank">感谢</a></li>
+              <li class="f-l"><a class="share">分享</a></li>
+              <li class="f-l"><a class="favorite">收藏</a></li>
+              <li class="f-l"><a class="helpless">没有帮助</a></li>
+              <li class="f-l"><a class="">举报</a></li>
+              <li class="f-l"><a class="no-repost">禁止转载</a></li>
             </ul>
           </div>
           <comments style="display:none;"></comments>

@@ -6,10 +6,10 @@
     <div class="topic-list">
       <ul>
         <li class="clearfix" v-for="topic in hotTopics">
-          <a href="#" class="avatar f-l"></a>
-          <a href="#" class="name">{{topic.topicName}}</a>
+          <a class="avatar f-l"></a>
+          <a class="name">{{topic.topicName}}</a>
           <p class="info">{{topic.followerNumber}}个人关注</p>
-          <a href="#" class="question">{{topic.question}}</a>
+          <a class="question">{{topic.question}}</a>
         </li>
       </ul>
     </div>

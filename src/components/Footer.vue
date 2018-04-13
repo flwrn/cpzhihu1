@@ -1,14 +1,14 @@
 <template lang="html">
   <div class="footer">
     <div class="clearfix">
-      <a href="#" class="f-l">刘看山</a>
-      <a href="#" class="f-l">移动应用</a>
-      <a href="#" class="f-l">加入知乎</a>
-      <a href="#" class="f-l">知乎协议</a>
+      <a class="f-l">刘看山</a>
+      <a class="f-l">移动应用</a>
+      <a class="f-l">加入知乎</a>
+      <a class="f-l">知乎协议</a>
     </div>
     <div class="clearfix">
-      <a href="#" class="f-l">举报投诉</a>
-      <a href="#" class="f-l">联系我们</a>
+      <a class="f-l">举报投诉</a>
+      <a class="f-l">联系我们</a>
       <p class="f-l">&copy; 20xx 知乎</p>
     </div>
   </div>

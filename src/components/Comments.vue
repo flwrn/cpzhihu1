@@ -2,8 +2,8 @@
   <div class="comments-wrapper">
     <ul class="comments">
       <li class="comment clearfix" v-for="(comment, index) in comments" v-on:mouseenter="mouseenter(index)" v-on:mouseleave="mouseleave(index)">
-        <a href="#" class="avatar f-l"></a>
-        <a href="#" class="name">{{comment.name}}</a>
+        <a class="avatar f-l"></a>
+        <a class="name">{{comment.name}}</a>
         <p class="content">{{comment.content}}</p>
         <p class="time f-l">{{comment.time}}</p>
         <div class="btns-wrapper f-l">

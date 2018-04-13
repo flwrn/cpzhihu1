@@ -6,20 +6,20 @@
       </div>
       <div class="search f-l clearfix">
         <input type="text" class="f-l" placeholder="搜索你感兴趣的内容...">
-        <a href="#" class="search-btn f-r">搜索</a>
+        <a class="search-btn f-r">搜索</a>
       </div>
       <nav class="nav f-l">
         <ul class="clearfix">
-          <li class="f-l"><a href="#" class="home">首页</a></li>
-          <li class="f-l"><a href="#" class="topic">话题</a></li>
-          <li class="f-l"><a href="#" class="explore">发现</a></li>
+          <li class="f-l"><a class="home">首页</a></li>
+          <li class="f-l"><a class="topic">话题</a></li>
+          <li class="f-l"><a class="explore">发现</a></li>
         </ul>
       </nav>
       <div class="btns f-r">
         <ul class="clearfix">
-          <li class="f-l"><a href="#" class="ask">提问</a></li>
-          <li class="f-l"><a href="#" class="signup">注册知乎</a></li>
-          <li class="f-l"><a href="#" class="login">登录</a></li>
+          <li class="f-l"><a class="ask">提问</a></li>
+          <li class="f-l"><a class="signup">注册知乎</a></li>
+          <li class="f-l"><a class="login">登录</a></li>
         </ul>
       </div>
     </div>

@@ -4,7 +4,7 @@
     <div class="related-recommendation-list">
       <ul>
         <li v-for="(item, index) in recommendationList">
-          <a href="#" class="recommendation-item clearfix" v-on:mouseenter="onmouseenter(item, index)" v-on:mouseleave="onmouseleave(item, index)">
+          <a class="recommendation-item clearfix" v-on:mouseenter="onmouseenter(item, index)" v-on:mouseleave="onmouseleave(item, index)">
             <div class="recommendation-pic f-l"></div>
             <p class="recommendation-title" v-bind:class="{'hover': item.hover}">{{item.title}}</p>
             <p class="recommendation-author">{{item.author}}</p>
@@ -34,7 +34,16 @@ export default {
           info: '信息',
           hover: false
         }
-      ]
+      ],
+      relatedQuestionPanel: {
+        el: null,
+        left: 0,
+        bottom: 0
+      },
+      relatedRecommendationPanel: {
+        el: null,
+        top: 0
+      }
     }
   },
   methods: {
@@ -43,7 +52,29 @@ export default {
     },
     onmouseleave(item, index) {
       item.hover = false
+    },
+    onscroll() {
+      this.relatedQuestionPanel.bottom = this.relatedQuestionPanel.el.getBoundingClientRect().bottom
+      if (this.relatedQuestionPanel.bottom < 46) {
+        this.relatedRecommendationPanel.el.style.position = 'fixed'
+        this.relatedRecommendationPanel.el.style.left = this.relatedQuestionPanel.el.getBoundingClientRect().left-10 + 'px'
+        this.relatedRecommendationPanel.el.style.top = '46px'
+        this.relatedRecommendationPanel.el.style.width = '280px'
+      } else {
+        this.relatedRecommendationPanel.el.style.position = ''
+        this.relatedRecommendationPanel.el.style.left = ''
+        this.relatedRecommendationPanel.el.style.top = ''
+      }
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.relatedQuestionPanel.el = document.querySelector('.related-question-panel')
+      this.relatedRecommendationPanel.el = document.querySelector('.related-recommendation-panel')
+      document.addEventListener('scroll', () => {
+        this.onscroll()
+      })
+    })
   }
 }
 </script>

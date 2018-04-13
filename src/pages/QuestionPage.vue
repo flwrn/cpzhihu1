@@ -5,13 +5,13 @@
     <div class="main center">
       <div v-bind:class="mainColClass">
         <answer-panel/>
-        <a href="#" class="write-answer">写回答</a>
+        <a class="write-answer">写回答</a>
       </div>
       <div v-bind:class="sideColClass">
         <download-zhihu-btn/>
         <related-question-panel/>
         <related-recommendation-panel/>
-        <app-footer/>
+        <!-- <app-footer/> -->
       </div>
     </div>
   </div>

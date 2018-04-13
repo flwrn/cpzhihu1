@@ -4,7 +4,7 @@
     <div class="related-question-list">
       <ul>
         <li v-for="(question) in relatedQuestionList">
-          <a href="#" class="question-url">{{question.questionTitle}}</a>
+          <a class="question-url">{{question.questionTitle}}</a>
           <span class="answer-number">{{question.answerNumber}}个回答</span>
         </li>
       </ul>

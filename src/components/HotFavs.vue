@@ -2,13 +2,13 @@
   <div class="hot-favs">
     <div class="header clearfix">
       <h4 class="f-l">热门收藏</h4>
-      <a href="#" class="f-r">换一换</a>
+      <a class="f-r">换一换</a>
     </div>
     <div class="fav-list">
       <ul>
         <li class="clearfix" v-for="fav in hotFavs">
-          <!-- <a href="#" class="avatar f-l"></a> -->
-          <a href="#" class="name">{{fav.favName}}</a>
+          <!-- <a class="avatar f-l"></a> -->
+          <a class="name">{{fav.favName}}</a>
           <p class="info">{{fav.followerNumber}}个人关注，{{fav.content}}条内容</p>
         </li>
       </ul>

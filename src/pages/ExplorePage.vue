@@ -91,7 +91,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .main {
     // margin: 80px 0;
     padding: 80px 0;

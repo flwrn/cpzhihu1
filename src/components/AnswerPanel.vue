@@ -2,13 +2,13 @@
   <div class="answer-panel">
     <div class="answer-list-info clearfix">
       <p class="answer-number f-l">几个回答</p>
-      <a href="#" class="sorting-answer f-r">默认排序</a>
+      <a class="sorting-answer f-r">默认排序</a>
     </div>
     <div class="answer-list">
       <ul class="answer-list-ul">
         <li class="answer-item" v-for="(answer, index) in answerList">
-          <a href="#" class="answerer-avatar f-l"></a>
-          <a href="#" class="answerer-name">{{answer.answererName}}</a>
+          <a class="answerer-avatar f-l"></a>
+          <a class="answerer-name">{{answer.answererName}}</a>
           <p class="answerer-info clearfix">{{answer.answererInfo}}</p>
           <p class="upvote-info">{{answer.upvoteNumber}}人赞同了该回答</p>
           <div class="answer-content">
@@ -18,10 +18,10 @@
           <div class="btns">
             <ul class="clearfix">
               <li class="f-l">
-                <a href="#" class="upvote">赞同</a>
+                <a class="upvote">赞同</a>
               </li>
               <li class="f-l">
-                <a href="#" class="downvote">反对</a>
+                <a class="downvote">反对</a>
               </li>
               <li class="f-l" v-if="!answer.isCommentShown">
                 <a v-on:click="showComment(answer, index)" class="comments">几条评论</a>
@@ -30,16 +30,16 @@
                 <a v-on:click="showComment(answer, index)" class="comments">收起评论</a>
               </li>
               <li class="f-l">
-                <a href="#" class="share">分享</a>
+                <a class="share">分享</a>
               </li>
               <li class="f-l">
-                <a href="#" class="fav">收藏</a>
+                <a class="fav">收藏</a>
               </li>
               <li class="f-l">
-                <a href="#" class="thank">感谢</a>
+                <a class="thank">感谢</a>
               </li>
               <li class="f-r">
-                <a href="#" class="foldup">收起</a>
+                <a class="foldup">收起</a>
               </li>
             </ul>
           </div>

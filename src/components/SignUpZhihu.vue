@@ -11,7 +11,7 @@
         <li><input type="password" class="password" placeholder="密码（不少于8位）"></input></li>
       </ul>
       <a class="signup-btn">注册</a>
-      <p>已有账号？<a href="#" class="login">登录</a></p>
+      <p>已有账号？<a class="login">登录</a></p>
     </form>
   </div>
 </template>
