@@ -4,21 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>project2</title>
-<<<<<<< HEAD
-    <link href=dist/static/css/app.80629e02cec03995eb6c7abd8581f27c.css rel=stylesheet>
-=======
     <link href=dist/static/css/app.f03465be93975c133c5beb48da0cd1f9.css rel=stylesheet>
->>>>>>> b1
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script type=text/javascript src=dist/static/js/manifest.2ae2e69a05c33dfc65f8.js></script>
     <script type=text/javascript src=dist/static/js/vendor.e7908c02937c695b7f07.js></script>
-<<<<<<< HEAD
-    <script type=text/javascript src=dist/static/js/app.1af95bfece98433575e4.js></script>
-=======
     <script type=text/javascript src=dist/static/js/app.9339d9249f70e9e98117.js></script>
->>>>>>> b1
   </body>
 </html>
