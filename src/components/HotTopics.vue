@@ -5,7 +5,7 @@
     </div>
     <div class="topic-list">
       <ul>
-        <li class="clearfix" v-for="topic in hotTopics">
+        <li class="clearfix" v-for="topic in vHotTopicList.hotTopics">
           <a class="avatar f-l"></a>
           <a class="name">{{topic.topicName}}</a>
           <p class="info">{{topic.followerNumber}}个人关注</p>
@@ -18,25 +18,27 @@
 
 <script>
 export default {
+  props: ['vHotTopicList'],
   data() {
     return {
-      hotTopics: [
-        {
-          topicName: '话题名字',
-          followerNumber: 666,
-          question: '相关的问题'
-        },
-        {
-          topicName: '话题名字',
-          followerNumber: 666,
-          question: '相关的问题'
-        },
-        {
-          topicName: '话题名字',
-          followerNumber: 666,
-          question: '相关的问题'
-        }
-      ]
+      hotTopics: this.vHotTopicList.hotTopics
+      // hotTopics: [
+      //   {
+      //     topicName: '话题名字',
+      //     followerNumber: 666,
+      //     question: '相关的问题'
+      //   },
+      //   {
+      //     topicName: '话题名字',
+      //     followerNumber: 666,
+      //     question: '相关的问题'
+      //   },
+      //   {
+      //     topicName: '话题名字',
+      //     followerNumber: 666,
+      //     question: '相关的问题'
+      //   }
+      // ]
     }
   }
 }

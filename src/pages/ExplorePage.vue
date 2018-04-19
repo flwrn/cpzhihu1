@@ -4,16 +4,16 @@
     <div class="main">
       <div class="center clearfix">
         <div class="main-col" v-bind:class="mainColClass">
-          <editor-recommendation/>
-          <top-question-list/>
+          <editor-recommendation v-bind:v-editor-recommendation="pageData.editorRecommendation"/>
+          <top-question-list v-bind:v-top-question-list="pageData.topQuestionList"/>
 
         </div>
         <div class="side-col" v-bind:class="sideColClass">
           <sign-up-zhihu/>
           <download-zhihu-btn/>
-          <hot-tables/>
-          <hot-topics/>
-          <hot-favs/>
+          <hot-tables v-bind:v-hot-table-list="pageData.hotTableList"/>
+          <hot-topics v-bind:v-hot-topic-list="pageData.hotTopicList"/>
+          <hot-favs v-bind:v-hot-fav-list="pageData.hotFavList"/>
           <app-footer/>
         </div>
       </div>
@@ -55,6 +55,69 @@ export default {
       sideColClass: {
         'col-s': true,
         'f-r': true
+      },
+      pageData: {
+        editorRecommendation: {
+          topQuestion: {
+            question: '',
+            author: {
+              name: '',
+              field: '',
+              info: ''
+            },
+            answer: ''
+          },
+          questionList: [
+            {
+              question: '',
+              tag: ''
+            }
+          ]
+        },
+        topQuestionList: {
+          questionList: [
+            {
+              question: '',
+              likes: '',
+              author: {
+                name: '',
+                field: '',
+                info: ''
+              },
+              answer: '',
+              comments: '',
+              hover: false
+            }
+          ]
+        },
+        hotTableList: {
+          hotTables: [
+            {
+              tableName: '',
+              remainingDays: '',
+              followerNumber: '',
+              questionNumber: ''
+            }
+          ]
+        },
+        hotTopicList: {
+          hotTopics: [
+            {
+              topicName: '',
+              followerNumber: '',
+              question: ''
+            }
+          ]
+        },
+        hotFavList: {
+          hotFavs: [
+            {
+              favName: '',
+              followerNumber: '',
+              content: ''
+            }
+          ]
+        }
       }
     }
   },
@@ -83,6 +146,46 @@ export default {
         // console.log(window.innerWidth)
       }
       this.resizeWidth()
+      console.log('mounted')
+      // console.log(this.editorRecommendation.topQuestion.question)
+      // this.editorRecommendation.topQuestion.question = 'new question'
+      // this.editorRecommendation.topQuestion.author = {
+      //   name: 'new name',
+      //   fields: 'new fields',
+      //   info: 'new info'
+      // }
+
+
+      // this.editorRecommendation.topQuestion = {
+      //   question: 'new question',
+      //   author: {
+      //     name: 'new name',
+      //     fields: 'new fields',
+      //     info: 'new info'
+      //   },
+      //   answer: 'new answer'
+      // }
+      // console.log(this.editorRecommendation.topQuestion.question)
+      // console.log('topQuestion changed')
+
+      var xhr = new XMLHttpRequest()
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          // console.log(xhr.responseText)
+          // console.log(xhr.responseText)
+          var data = JSON.parse(xhr.responseText)
+          // console.log(pageData)
+          this.pageData = data
+          // console.log(this.pageData)
+          // this.pageData.editorRecommendation = pageData.editorRecommendation
+          // this.pageData.topQuestionList = data.topQuestionList
+          // this.pageData.hotTableList = pageData.hotTableList
+          // this.pageData.hotTopicList = pageData.hotTopicList
+          // this.pageData.hotFavList = pageData.hotFavList
+        }
+      }
+      xhr.open('GET', 'http://localhost:3000', true)
+      xhr.send()
     })
   }
 }

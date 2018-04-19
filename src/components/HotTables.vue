@@ -6,7 +6,7 @@
     </div>
     <div class="table-list">
       <ul>
-        <li class="clearfix" v-for="table in hotTables">
+        <li class="clearfix" v-for="table in vHotTableList.hotTables">
           <a class="avatar f-l"></a>
           <p class="remaining-days f-r">还有{{table.remainingDays}}天结束</p>
           <a class="name">{{table.tableName}}</a>
@@ -19,22 +19,24 @@
 
 <script>
 export default {
+  props: ['vHotTableList'],
   data() {
     return {
-      hotTables: [
-        {
-          tableName: '圆桌名字',
-          remainingDays: 3,
-          followerNumber: 666,
-          questionNumber: 233
-        },
-        {
-          tableName: '圆桌名字',
-          remainingDays: 3,
-          followerNumber: 666,
-          questionNumber: 233
-        }
-      ]
+      hotTables: this.vHotTableList.hotTables
+      // hotTables: [
+      //   {
+      //     tableName: '圆桌名字',
+      //     remainingDays: 3,
+      //     followerNumber: 666,
+      //     questionNumber: 233
+      //   },
+      //   {
+      //     tableName: '圆桌名字',
+      //     remainingDays: 3,
+      //     followerNumber: 666,
+      //     questionNumber: 233
+      //   }
+      // ]
     }
   }
 }

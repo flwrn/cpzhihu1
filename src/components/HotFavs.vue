@@ -6,7 +6,7 @@
     </div>
     <div class="fav-list">
       <ul>
-        <li class="clearfix" v-for="fav in hotFavs">
+        <li class="clearfix" v-for="fav in vHotFavList.hotFavs">
           <!-- <a class="avatar f-l"></a> -->
           <a class="name">{{fav.favName}}</a>
           <p class="info">{{fav.followerNumber}}个人关注，{{fav.content}}条内容</p>
@@ -18,35 +18,37 @@
 
 <script>
 export default {
+  props: ['vHotFavList'],
   data() {
     return {
-      hotFavs: [
-        {
-          favName: '收藏夹名字',
-          followerNumber: 666,
-          content: 233
-        },
-        {
-          favName: '收藏夹名字',
-          followerNumber: 666,
-          content: 233
-        },
-        {
-          favName: '收藏夹名字',
-          followerNumber: 666,
-          content: 233
-        },
-        {
-          favName: '收藏夹名字',
-          followerNumber: 666,
-          content: 233
-        },
-        {
-          favName: '收藏夹名字',
-          followerNumber: 666,
-          content: 233
-        }
-      ]
+      hotFavs: this.vHotFavList
+      // hotFavs: [
+      //   {
+      //     favName: '收藏夹名字',
+      //     followerNumber: 666,
+      //     content: 233
+      //   },
+      //   {
+      //     favName: '收藏夹名字',
+      //     followerNumber: 666,
+      //     content: 233
+      //   },
+      //   {
+      //     favName: '收藏夹名字',
+      //     followerNumber: 666,
+      //     content: 233
+      //   },
+      //   {
+      //     favName: '收藏夹名字',
+      //     followerNumber: 666,
+      //     content: 233
+      //   },
+      //   {
+      //     favName: '收藏夹名字',
+      //     followerNumber: 666,
+      //     content: 233
+      //   }
+      // ]
     }
   }
 }

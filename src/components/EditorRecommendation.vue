@@ -7,17 +7,17 @@
     <hr>
     <div class="recommendation-list">
       <div class="top-question clearfix">
-        <a href="#/question" class="question"><h4>{{topQuestion.question}}</h4></a>
+        <a href="#/question" class="question"><h4>{{vEditorRecommendation.topQuestion.question}}</h4></a>
         <a class="avatar f-l"></a>
         <div class="author">
-          <a class="name"><h4>{{topQuestion.author.name}}</h4></a>
-          <a class="field">{{topQuestion.author.field}}</a>
-          <p class="info">{{topQuestion.author.info}}</p>
+          <a class="name"><h4>{{vEditorRecommendation.topQuestion.author.name}}</h4></a>
+          <a class="field">{{vEditorRecommendation.topQuestion.author.field}}</a>
+          <p class="info">{{vEditorRecommendation.topQuestion.author.info}}</p>
         </div>
-        <p class="answer">{{topQuestion.answer}}</p>
+        <p class="answer">{{vEditorRecommendation.topQuestion.answer}}</p>
       </div>
       <ul>
-        <li class="clearfix" v-for="question in questionList">
+        <li class="clearfix" v-for="question in vEditorRecommendation.questionList">
           <a href="#/question" class="question f-l"><h4>{{question.question}}</h4></a>
           <p class="tag f-r">{{question.tag}}</p>
         </li>
@@ -28,36 +28,47 @@
 
 <script>
 export default {
+  props: ['vEditorRecommendation'],
   data() {
     return {
-      topQuestion: {
-        question: '编辑推荐的问题',
-        author: {
-          name: '作者',
-          fields: '某个领域的优秀回答者',
-          info: '信息介绍'
-        },
-        answer: '具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容。'
-      },
-      questionList: [
-        {
-          question: '其他推荐的问题',
-          tag: '问题的标签'
-        },
-        {
-          question: '其他推荐的问题',
-          tag: '问题的标签'
-        },
-        {
-          question: '其他推荐的问题',
-          tag: '问题的标签'
-        },
-        {
-          question: '其他推荐的问题',
-          tag: '问题的标签'
-        }
-      ]
+      editorRecommendation: this.vEditorRecommendation
+      // topQuestion: this.initialEditorRecommendation.topQuestion,
+      // topQuestion: {
+      //   question: '编辑推荐的问题',
+      //   author: {
+      //     name: '作者',
+      //     fields: '某个领域的优秀回答者',
+      //     info: '信息介绍'
+      //   },
+      //   answer: '具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容，具体回答的内容。'
+      // },
+      // questionList: this.initialEditorRecommendation.questionList
+      // questionList: [
+      //   {
+      //     question: '其他推荐的问题',
+      //     tag: '问题的标签'
+      //   },
+      //   {
+      //     question: '其他推荐的问题',
+      //     tag: '问题的标签'
+      //   },
+      //   {
+      //     question: '其他推荐的问题',
+      //     tag: '问题的标签'
+      //   },
+      //   {
+      //     question: '其他推荐的问题',
+      //     tag: '问题的标签'
+      //   }
+      // ]
     }
+  },
+  watcher: {
+    // vEditorRecommendation: function(newValue, oldValue) {
+    //   console.log('changed')
+    //   document.querySelector('.editor-recommendation .recommendation-list .top-question .answer')
+    //     .innerHTML = newValue.topQuestion.answer
+    // }
   }
 }
 </script>

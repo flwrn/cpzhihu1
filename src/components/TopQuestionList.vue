@@ -8,7 +8,7 @@
     </div>
     <div class="question-list">
       <ul>
-        <li class="clearfix" v-for="(question, index) in questionList" v-on:mouseenter="mouseenter(question)" v-on:mouseleave="mouseleave(question)">
+        <li class="clearfix" v-for="(question, index) in vTopQuestionList.questionList" v-on:mouseenter="mouseenter(question)" v-on:mouseleave="mouseleave(question)">
           <a href="#/question" class="question"><h4>{{question.question}}</h4></a>
           <a class="likes f-l">{{question.likes}}</a>
           <div class="author">
@@ -46,62 +46,69 @@
 import Comments from './Comments.vue'
 
 export default {
+  props: ['vTopQuestionList'],
   components: {
     'comments': Comments
   },
+  // computed: {
+  //   questionList: function() {
+  //     return this.vTopQuestionList.questionList
+  //   }
+  // },
   data() {
     return {
       comments: [],
-      questionList: [
-        {
-          question: '一个问题1',
-          likes: 6661,
-          author: {
-            name: '作者名字1',
-            field: '，某某问题的优秀回答者1',
-            info: '信息介绍1'
-          },
-          answer: '回答的具体内容...1',
-          comments: 2331,
-          hover: false
-        },
-        {
-          question: '一个问题2',
-          likes: 6662,
-          author: {
-            name: '作者名字2',
-            field: '，某某问题的优秀回答者2',
-            info: '信息介绍2'
-          },
-          answer: '回答的具体内容...2',
-          comments: 2332,
-          hover: false
-        },
-        {
-          question: '一个问题3',
-          likes: 6663,
-          author: {
-            name: '作者名字3',
-            field: '，某某问题的优秀回答者3',
-            info: '信息介绍3'
-          },
-          answer: '回答的具体内容...3',
-          comments: 2333,
-          hover: false
-        },
-        {
-          question: '一个问题4',
-          likes: 6664,
-          author: {
-            name: '作者名字4',
-            field: '，某某问题的优秀回答者4',
-            info: '信息介绍4'
-          },
-          answer: '回答的具体内容...4',
-          comments: 2334,
-          hover: false
-        }
-      ]
+      questionList: this.vTopQuestionList.questionList
+      // questionList: [
+      //   {
+      //     question: '一个问题1',
+      //     likes: 6661,
+      //     author: {
+      //       name: '作者名字1',
+      //       field: '，某某问题的优秀回答者1',
+      //       info: '信息介绍1'
+      //     },
+      //     answer: '回答的具体内容...1',
+      //     comments: 2331,
+      //     hover: false
+      //   },
+      //   {
+      //     question: '一个问题2',
+      //     likes: 6662,
+      //     author: {
+      //       name: '作者名字2',
+      //       field: '，某某问题的优秀回答者2',
+      //       info: '信息介绍2'
+      //     },
+      //     answer: '回答的具体内容...2',
+      //     comments: 2332,
+      //     hover: false
+      //   },
+      //   {
+      //     question: '一个问题3',
+      //     likes: 6663,
+      //     author: {
+      //       name: '作者名字3',
+      //       field: '，某某问题的优秀回答者3',
+      //       info: '信息介绍3'
+      //     },
+      //     answer: '回答的具体内容...3',
+      //     comments: 2333,
+      //     hover: false
+      //   },
+      //   {
+      //     question: '一个问题4',
+      //     likes: 6664,
+      //     author: {
+      //       name: '作者名字4',
+      //       field: '，某某问题的优秀回答者4',
+      //       info: '信息介绍4'
+      //     },
+      //     answer: '回答的具体内容...4',
+      //     comments: 2334,
+      //     hover: false
+      //   }
+      // ]
     }
   },
   methods: {
