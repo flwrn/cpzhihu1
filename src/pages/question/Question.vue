@@ -109,7 +109,7 @@ export default {
       // width: 100%;
       left: 0;
       right: 0;
-      // z-index: 9;
+      z-index: 9;
     }
     .center {
       margin: 10px auto 80px auto;
