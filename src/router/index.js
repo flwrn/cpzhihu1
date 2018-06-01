@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ExplorePage from '../pages/ExplorePage'
-import QuestionPage from '../pages/QuestionPage'
+import ExplorePage from '@/pages/explore/Explore'
+import QuestionPage from '@/pages/question/Question'
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ export default new Router({
       component: ExplorePage
     },
     {
-      path: '/question',
+      path: '/question/:id',
       name: 'QuestionPage',
       component: QuestionPage
     }
