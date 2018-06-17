@@ -94,7 +94,6 @@ export default {
   background: #eee;
   padding-bottom: 20px;
   .container {
-    // transform: scaleX(1);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -104,12 +103,12 @@ export default {
     overflow-y: auto;
     background: #eee;
     .header {
-      position: fixed;
+      position: sticky;
       top: 0;
       // width: 100%;
-      left: 0;
-      right: 0;
-      z-index: 9;
+      // left: 0;
+      // right: 0;
+      z-index: 10;
     }
     .center {
       margin: 10px auto 80px auto;
@@ -123,6 +122,14 @@ export default {
         width: 300px;
       }
     }
+  }
+  .modal {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 </style>

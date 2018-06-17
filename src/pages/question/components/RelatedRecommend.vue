@@ -31,9 +31,9 @@ export default {
         {}
       ],
       styleObj: {
-        position: '',
-        top: '50px',
-        left: ''
+        // position: '',
+        // top: '',
+        // left: ''
       }
     }
   },
@@ -52,9 +52,9 @@ export default {
     }
   },
   mounted() {
-    document.querySelector('div.container').addEventListener('scroll', this.onscroll)
-    window.addEventListener('resize', this.setLeft)
-    this.setLeft()
+    // document.querySelector('div.container').addEventListener('scroll', this.onscroll)
+    // window.addEventListener('resize', this.setLeft)
+    // this.setLeft()
   }
 }
 </script>
@@ -70,6 +70,8 @@ a {
   margin: 10px 0 0 10px;
   box-shadow: 0 1px 3px #ccc;
   width: 290px;
+  position: sticky;
+  top: 60px;
   .title {
     font-size: 16px;
     font-weight: 700;

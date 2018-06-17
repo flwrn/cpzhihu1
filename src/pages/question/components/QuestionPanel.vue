@@ -152,7 +152,7 @@ export default {
     }
   },
   mounted() {
-    document.addEventListener('scroll', () => {
+    document.querySelector('div.container').addEventListener('scroll', () => {
       this.setFix()
     })
     // this.loadQuestion()
@@ -172,7 +172,7 @@ a {
 }
 .question-panel {
   box-shadow: 0 1px 3px #ccc;
-  padding-top: 60px;
+  padding-top: 10px;
   // padding-bottom: 20px;
   background: #fff;
   .question-panel-upper {

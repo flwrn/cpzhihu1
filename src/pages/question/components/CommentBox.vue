@@ -1,67 +1,66 @@
 <template lang="html">
   <div class="comment-box">
-    <div class="title-bar">
-      <span class="comment-number">
-        {{commentList.length}} 条评论
-      </span>
-      <a class="sorting">
-        <i class="fas fa-exchange-alt"></i>
-        切换为时间顺序
-      </a>
-    </div>
-    <ul class="comment-list">
-      <li
-        class="comment-item clearfix"
-        v-for="(item, index) of commentList"
-        :key="item.id"
-        @mouseenter="onmouseenter(index)"
-        @mouseleave="onmouseleave(index)"
-      >
-        <div class="author-avatar fleft">
-          <img src="" alt="">
-        </div>
-        <div class="comment-time fright">
-          {{timeSince(item.createdTime)}}
-        </div>
-        <div class="author-name">
-          {{item.author.name}}
-        </div>
-        <div class="comment-content" v-html="item.content"></div>
-        <div class="btns">
-          <a class="up">
-            <i class="fas fa-thumbs-up"></i>&nbsp;
-            <span v-if="item.voteCount">{{item.voteCount}}</span>
-            <span v-else>赞</span>
-          </a>
-          <div class="more-btns" :class="{'hidden':!commentStateList[index].moreBtns}">
-            <a class="reply">
-              <i class="fas fa-reply"></i>&nbsp;
-              回复
-            </a>
-            <a class="down">
-              <i class="fas fa-thumbs-down"></i>&nbsp;
-              踩
-            </a>
-            <a class="report">
-              <i class="fas fa-flag"></i>&nbsp;
-              举报
-            </a>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div class="pagination">
+    <div class="comment-box-content-wrapper">
+      <div class="title-bar">
+        <span class="comment-number">
+          {{commentList.length}} 条评论
+        </span>
+        <a class="sorting">
+          <i class="fas fa-exchange-alt"></i>
+          切换为时间顺序
+        </a>
+      </div>
 
-    </div>
-    <div class="leave-comment" :class="{'focused':isInputFocused}">
-      <input
+      <ul class="comment-list">
+        <li class="comment-item clearfix" v-for="(item, index) of commentList" :key="item.id" @mouseenter="onmouseenter(index)" @mouseleave="onmouseleave(index)">
+          <div class="author-avatar fleft">
+            <img src="" alt="">
+          </div>
+          <div class="comment-time fright">
+            {{timeSince(item.createdTime)}}
+          </div>
+          <div class="author-name">
+            {{item.author.name}}
+          </div>
+          <div class="comment-content" v-html="item.content"></div>
+          <div class="btns">
+            <a class="up">
+              <i class="fas fa-thumbs-up"></i>&nbsp;
+              <span v-if="item.voteCount">{{item.voteCount}}</span>
+              <span v-else>赞</span>
+            </a>
+            <div class="more-btns" :class="{'hidden':!commentStateList[index].moreBtns}">
+              <a class="reply">
+                <i class="fas fa-reply"></i>&nbsp;
+                回复
+              </a>
+              <a class="down">
+                <i class="fas fa-thumbs-down"></i>&nbsp;
+                踩
+              </a>
+              <a class="report">
+                <i class="fas fa-flag"></i>&nbsp;
+                举报
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="pagination">
+
+      </div>
+      <div class="leave-comment" :class="{'focused':isInputFocused}">
+        <input
         class="leave-comment-input"
         type="text"
         placeholder="写下你的评论..."
         @focus="onfocus"
         @blur="onblur"
-      >
-      <a class="leave-comment-btn">评论</a>
+        >
+        <div class="leave-comment-btn-wrapper">
+          <button class="leave-comment-btn" type="button">评论</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -196,6 +195,9 @@ export default {
       .comment-content {
         font-size: 15px;
         margin-top: 15px;
+        a {
+          color: #369;
+        }
       }
       .btns {
         margin-top: 10px;
@@ -227,8 +229,6 @@ export default {
   .leave-comment {
     padding: 10px 15px;
     position: relative;
-    // display: flex;
-    // align-items: center;
     .leave-comment-input {
       width: 100%;
       height: 36px;
@@ -248,10 +248,12 @@ export default {
       background: $blue1;
       color: #fff;
       height: 36px;
+      border: 0;
       border-radius: 3px;
       line-height: 36px;
-      padding: 0 15px;
+      padding: 0px 15px;
       transform: scale3d(0, 0, 0);
+      z-index: 5;
       transition: all .3s;
     }
   }

@@ -99,7 +99,7 @@ export default {
       // answerList: this.answerListData,
       foldCommentPosition: {
         left: '',
-        bottom: '10px'
+        bottom: '15px'
       },
       page: 1
     }
@@ -188,12 +188,19 @@ export default {
       anchorList.map((item) => {
         item.style.color = '#369'
       })
+    },
+    setFoldCommentPosition() {
+      this.foldCommentPosition.left = (document.querySelector('.answer-list-panel').getBoundingClientRect().right - 76 - 20 - 15)+'px'
     }
   },
   mounted() {
     // console.log('before  loadAnswers')
     // this.loadAnswers()
-    this.foldCommentPosition.left = (document.querySelector('.answer-list-panel').getBoundingClientRect().right - 76 - 20 - 15)+'px'
+    // this.foldCommentPosition.left = (document.querySelector('.answer-list-panel').getBoundingClientRect().right - 76 - 20 - 15)+'px'
+    this.setFoldCommentPosition()
+    window.addEventListener('resize', () => {
+      this.setFoldCommentPosition()
+    })
     document.querySelector('div.container').addEventListener('scroll', this.checkScope)
     document.querySelector('div.container').addEventListener('scroll', () => {
       if (document.querySelector('div.answer-list-panel').getBoundingClientRect().bottom < window.innerHeight + 500) {
@@ -321,9 +328,10 @@ a {
       color: $gray1;
       font-size: 14px;
       opacity: 1;
-      transition: all .2s;
+      transition: opacity .2s, visibility .2s;
     }
     .fold-comment.hidden {
+      transition: opacity .2s, visibility .2s .2s;
       opacity: 0;
       visibility: hidden;
     }

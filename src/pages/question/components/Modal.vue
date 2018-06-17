@@ -211,7 +211,7 @@ export default {
       background: #fff;
       width: 700px;
       max-height: 500%;
-      margin: 20px 0;
+      margin: 20px 0 20px 0;
       border-radius: 3px;
       display: flex;
       flex-direction: column;
@@ -333,7 +333,7 @@ export default {
     .close-comment {
       color: #fff;
       font-size: 20px;
-      margin-top: 40px;
+      margin-top: 30px;
       margin-left: 20px;
     }
   }

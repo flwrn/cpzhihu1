@@ -8,10 +8,10 @@ let browser = null;
 let page = null;
 
 // Set the keyword to search for
-const keyword = '程序员';
+const keyword = '单身';
 
 // How many questions needed
-const questionsNeeded = 5;
+const questionsNeeded = 1;
 
 // How many answers for each question
 const answersNeeded = 5;
@@ -51,7 +51,7 @@ async function main() {
 
   for (let i=0; i<questionList.length; i++) {
     let questionItem = questionList[i];
-    questionItem = await getQuestionItem(questionItem);
+    await getQuestionItem(questionItem);
     saveQuestion(questionItem);
     console.log(`${i+1} / ${questionList.length} questions saved`);
   }
@@ -68,8 +68,8 @@ main();
 function initPuppeteer() {
   return new Promise(async (resolve, reject) => {
     browser = await puppeteer.launch({
-      executablePath: '/usr/bin/chromium',
-      headless: false
+      executablePath: '/usr/bin/chromium'
+      // headless: false
       // slowMo: 100
     });
     page = await browser.newPage();
@@ -219,7 +219,7 @@ function getQuestionItem(questionItem) {
       for (let i=0; i<answersAvail; i++) {
         let answerItem = {};
         let answerIndex = i;
-        answerItem = await getAnswerItem(answerItem, answerIndex);
+        await getAnswerItem(answerItem, answerIndex);
         saveAnswer(answerItem);
         console.log(`${i+1} / ${answersAvail} answers saved`);
         answerList.push(answerItem);
@@ -232,7 +232,7 @@ function getQuestionItem(questionItem) {
 
       // Wait for comment list
       let commentList = [];
-      commentList = await getQuestionCommentList(commentList);
+      await getQuestionCommentList(commentList);
 
       // Get comment id list
       questionItem.commentIdList = commentList.map((item) => {
@@ -241,7 +241,7 @@ function getQuestionItem(questionItem) {
       });
 
       page.removeListener('load', onLoad);
-      resolve(questionItem);
+      resolve();
     }
 
     page.on('load', onLoad);
@@ -266,7 +266,7 @@ function getAnswerItem(answerItem, answerIndex) {
 
     // Wait for author item
     let answerAuthor = {};
-    answerAuthor = await getAnswerAuthor(answerAuthor, answerIndex);
+    await getAnswerAuthor(answerAuthor, answerIndex);
     saveAuthor(answerAuthor);
 
     // Get author info
@@ -277,7 +277,7 @@ function getAnswerItem(answerItem, answerIndex) {
     // let commentsNeeded = answerItem.commentCount > 20 ? answerItem.commentCount : 20;
     let commentList = [];
     let commentCount = answerItem.commentCount;
-    commentList = await getAnswerCommentList(commentList, answerIndex, commentCount);
+    await getAnswerCommentList(commentList, answerIndex, commentCount);
 
     // Get comment id list
     answerItem.commentIdList = commentList.map((item) => {
@@ -285,7 +285,7 @@ function getAnswerItem(answerItem, answerIndex) {
       return item.id;
     });
 
-    resolve(answerItem);
+    resolve();
   });
 }
 
@@ -297,7 +297,7 @@ function getAnswerAuthor(answerAuthor, answerIndex) {
       answerAuthor.avatar = document.querySelectorAll('div.AuthorInfo > meta[itemprop=image]')[answerIndex].content;
       return answerAuthor;
     }, answerAuthor, answerIndex);
-    resolve(answerAuthor);
+    resolve();
   });
 }
 
@@ -321,7 +321,7 @@ function getAnswerCommentList(commentList, answerIndex, commentCount) {
 
           // Wait for author id
           let commentAuthor = {};
-          commentAuthor = await getCommentAuthor(commentAuthor, item);
+          await getCommentAuthor(commentAuthor, item);
           saveAuthor(commentAuthor);
           // commentItem.authorId = commentAuthor.id;
           commentItem.author = commentAuthor;
@@ -339,7 +339,7 @@ function getAnswerCommentList(commentList, answerIndex, commentCount) {
           }, answerIndex);
 
           page.removeListener('response', onResponse);
-          resolve(commentList);
+          resolve();
         }
       }
     }
@@ -355,7 +355,7 @@ function getCommentAuthor(commentAuthor, item) {
     commentAuthor.id = item.author.member.id;
     commentAuthor.name = item.author.member.name;
     commentAuthor.avatar = item.author.member.avatar_url;
-    resolve(commentAuthor);
+    resolve();
   });
 }
 
@@ -388,7 +388,7 @@ function getQuestionCommentList(commentList) {
           document.querySelector('button.Modal-closeButton').click()
         });
         page.removeListener('response', onResponse);
-        resolve(commentList);
+        resolve();
       }
     }
     page.on('response', onResponse);
