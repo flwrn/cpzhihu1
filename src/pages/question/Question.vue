@@ -18,6 +18,8 @@
       </div>
     </div>
     <modal/>
+    <new-question/>
+    <login-page/>
   </div>
 </template>
 
@@ -31,6 +33,8 @@ import DownloadZhihu from './components/DownloadZhihu'
 import RelatedQuestions from './components/RelatedQuestions'
 import RelatedRecommend from './components/RelatedRecommend'
 import Modal from './components/Modal'
+import NewQuestion from './components/NewQuestion'
+import LoginPage from './components/LoginPage'
 export default {
   name: 'QuestionPage',
   components: {
@@ -41,7 +45,9 @@ export default {
     DownloadZhihu,
     RelatedQuestions,
     RelatedRecommend,
-    Modal
+    Modal,
+    NewQuestion,
+    LoginPage
   },
   data() {
     return {

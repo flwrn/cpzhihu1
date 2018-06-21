@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="modal" :class="{shown:commentBox}">
+  <div class="modal commentBox" :class="{shown:commentBox}">
     <div class="modal-background">
       <div class="modal-box">
         <div class="title-bar">

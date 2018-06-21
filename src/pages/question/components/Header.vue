@@ -22,9 +22,10 @@
             <i class="fas fa-search"></i>
           </a>
         </div>
+        <a class="new-question-btn" @click="newQuestion">提问</a>
       </div>
       <div class="fright">
-        <a class="login">登录</a>
+        <a class="login" @click="loginPage">登录</a>
         <a class="signup">加入知乎</a>
       </div>
     </div>
@@ -61,6 +62,9 @@ export default {
   computed: {
     questionTitle() {
       return this.$store.state.questionItem.title
+    },
+    loggedIn() {
+      return this.$store.state.loggedIn
     }
   },
   methods: {
@@ -88,6 +92,13 @@ export default {
           this.scroll = false
         }
       }
+    },
+    newQuestion() {
+      // console.log('newQuestion')
+      this.$store.commit('toggleNewQuestion', true)
+    },
+    loginPage() {
+      this.$store.commit('toggleLoginPage', true)
     }
   },
   mounted() {
@@ -163,6 +174,19 @@ a {
           color: $blue1;
         }
       }
+      .new-question-btn {
+        margin-left: 5px;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 10px;
+        color: #fff;
+        background: $blue1;
+        border: 1px solid $blue1;
+        border-radius: 3px;
+        &:hover {
+          background: $blue2;
+        }
+      }
       .nav-links {
         display: flex;
         margin: 0 10px;
@@ -186,16 +210,16 @@ a {
       display: flex;
       align-items: center;
       color: #eee;
-      .new-question-btn, {
-        height: 32px;
-        line-height: 32px;
-        padding: 0 20px;
-        margin: 0 20px;
-        background: linear-gradient(#08e, #07d);
-        border: 1px solid $darkBlue1;
-        border-radius: 3px;
-        color: #eee;
-      }
+      // .new-question-btn, {
+      //   height: 32px;
+      //   line-height: 32px;
+      //   padding: 0 20px;
+      //   margin: 0 20px;
+      //   background: linear-gradient(#08e, #07d);
+      //   border: 1px solid $darkBlue1;
+      //   border-radius: 3px;
+      //   color: #eee;
+      // }
       .login, .write-answer {
         height: 32px;
         line-height: 32px;

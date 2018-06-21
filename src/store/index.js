@@ -22,7 +22,10 @@ export default new Vuex.Store({
     },
     answerList: [],
     answerStateList: [],
-    commentBox: false
+    commentBox: false,
+    newQuestion: false,
+    loginPage: false,
+    loggedIn: true
   },
   mutations: {
     updateQuestion(state, data) {
@@ -56,6 +59,12 @@ export default new Vuex.Store({
     },
     toggleComments(state, value) {
       state.commentBox = value
+    },
+    toggleNewQuestion(state, value) {
+      state.newQuestion = value
+    },
+    toggleLoginPage(state, value) {
+      state.loginPage = value
     }
   }
 })
