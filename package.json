@@ -15,6 +15,7 @@
     "cheerio": "^1.0.0-rc.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
+    "expressjs": "^1.0.1",
     "mongoose": "^5.1.5",
     "puppeteer": "^1.4.0",
     "vue": "^2.5.2",

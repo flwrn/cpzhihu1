@@ -67,6 +67,7 @@
 
 <script>
 import axios from 'axios'
+import jsonGetter from '@/backend/json-getter'
 export default {
   name: 'CommentBox',
   props: {
@@ -129,11 +130,16 @@ export default {
   watch: {
     showComments(value) {
       if (value) {
-        axios.get(`http://localhost:4000/api/answer/${this.answerId}/comments`).then((res) => {
-          console.log(res.data)
-          console.log(res.data.commentList)
-          this.commentList = res.data.commentList
-        })
+        // // Use local server
+        // axios.get(`http://localhost:4000/api/answer/${this.answerId}/comments`).then((res) => {
+        //   console.log(res.data)
+        //   console.log(res.data.commentList)
+        //   this.commentList = res.data.commentList
+        // })
+
+        // Use json getter
+        const data = jsonGetter.getAnswerComments(this.answerId)
+        this.commentList = data.commentList
       }
     },
     commentList(value) {

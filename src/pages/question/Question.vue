@@ -35,6 +35,7 @@ import RelatedRecommend from './components/RelatedRecommend'
 import Modal from './components/Modal'
 import NewQuestion from './components/NewQuestion'
 import LoginPage from './components/LoginPage'
+import jsonGetter from '@/backend/json-getter'
 export default {
   name: 'QuestionPage',
   components: {
@@ -73,24 +74,33 @@ export default {
   },
   methods: {
     loadQuestion() {
-      axios.get(`http://localhost:4000/api/question/${this.questionId}`).then((res) => {
-        // console.log(`res.data: `, res.data)
-        this.$store.commit('updateQuestion', res.data)
-      })
+      // // Use local server
+      // axios.get(`http://localhost:4000/api/question/${this.questionId}`).then((res) => {
+      //   // console.log(`res.data: `, res.data)
+      //   this.$store.commit('updateQuestion', res.data)
+      // })
+
+      // Use json getter
+      const data = jsonGetter.getQuestion(this.questionId)
+      this.$store.commit('updateQuestion', data)
     },
     loadAnswers() {
-      // console.log('before axios.get')
-      axios.get(`http://localhost:4000/api/question/${this.questionId}/answers`).then((res) => {
-        // console.log(`res.data`, res.data)
-        this.$store.commit('updateAnswer', res.data)
-        // this.$store.commit('updateAnswerState')
-      })
+      // // Use local server
+      // axios.get(`http://localhost:4000/api/question/${this.questionId}/answers`).then((res) => {
+      //   // console.log(`res.data`, res.data)
+      //   this.$store.commit('updateAnswer', res.data)
+      //   // this.$store.commit('updateAnswerState')
+      // })
+
+      // Use json getter
+      const data = jsonGetter.getAnswers(this.questionId)
+      this.$store.commit('updateAnswer', data)
     }
   },
   mounted() {
     this.previousQuestionId = this.questionId
-    this.loadQuestion();
-    this.loadAnswers();
+    this.loadQuestion()
+    this.loadAnswers()
   }
 }
 </script>

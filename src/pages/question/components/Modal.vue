@@ -72,6 +72,7 @@
 
 <script>
 import axios from 'axios'
+import jsonGetter from '@/backend/json-getter'
 export default {
   name: 'Modal',
   // props: {
@@ -92,6 +93,7 @@ export default {
   },
   methods: {
     getComments(page) {
+      // Use local server
       axios.get(`http://localhost:4000/api/answer/${this.answerId}/comments?page=${page}`).then((res) => {
         this.commentList = res.data.commentList
       })
@@ -144,10 +146,15 @@ export default {
   watch: {
     commentBox(value) {
       if (value) {
-        axios.get(`http://localhost:4000/api/question/${this.$store.state.questionItem.id}/comments`)
-        .then((res) => {
-          this.commentList = res.data.commentList
-        })
+        // // Use local server
+        // axios.get(`http://localhost:4000/api/question/${this.$store.state.questionItem.id}/comments`)
+        // .then((res) => {
+        //   this.commentList = res.data.commentList
+        // })
+
+        // Use json getter
+        const data = jsonGetter.getQuestionComments(this.$store.state.questionItem.id)
+        this.commentList = data.commentList
       }
     },
     commentList(value) {

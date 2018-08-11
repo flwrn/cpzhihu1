@@ -6,7 +6,6 @@ import QuestionPage from '@/pages/question/Question'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   routes: [
     {
       path: '/',
