@@ -1,0 +1,49 @@
+.v-html a {
+  color: #369;
+}
+.v-html h2 {
+  font-size: 18px;
+  margin: 20px 0;
+  font-weight: 700;
+}
+.v-html hr {
+  margin: 60px auto;
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 240px;
+}
+.v-html pre {
+  background: #f6f6f6;
+  padding: 10px;
+  overflow: auto;
+}
+.v-html pre * {
+  font-family: "Consolas", "Droid Sans Fallback";
+}
+.v-html ol {
+  margin: 20px 0 0 30px;
+}
+.v-html ul {
+  margin: 20px 0 0 30px;
+}
+.v-html figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.v-html figcaption {
+  font-size: 14px;
+  color: #999;
+}
+.v-html img {
+  max-width: 600px;
+}
+@media screen and (max-width: 660px) {
+  .v-html img {
+    max-width: 100%;
+    /* width: 100%; */
+  }
+}
+.v-html * {
+  max-width: 100%;
+}

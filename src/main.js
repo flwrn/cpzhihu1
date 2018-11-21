@@ -1,15 +1,15 @@
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import router from './router'
 import store from './store'
-import './css/reset.css'
+import './style/reset.css'
+import './style/style-fix.css'
+import '../public/fontawesome-free-5.3.1-web/css/all.css'
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   store,
   render: h => h(App)
-})
+}).$mount('#app')

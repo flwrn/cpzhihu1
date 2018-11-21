@@ -13014,7 +13014,7 @@ const database = {
   ]
 };
 
-module.exports = {
+export default {
   getQuestion(questionId) {
     const questionIndex = database.questionList.findIndex((item) => {
       return item.id === questionId;
